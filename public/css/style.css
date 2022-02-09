@@ -136,7 +136,7 @@ main {
 .container {
     position: relative;
     /* background-color: #007fb1; */
-    margin: 0px 100px 0px 50px;
+    margin: 0px 100px 80px 50px;
     box-shadow: 10px 10px 1px #c800ff;
     /* height: 200px; */
     /* width: 90%; */

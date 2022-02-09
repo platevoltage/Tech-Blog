@@ -6,14 +6,17 @@ const Post = require('../models/Post');
 router.get('/', async (req, res) => {
   try {
 
-    const postData = await Post.findAll();
+    const postData = await Post.findAll().catch((err) => { 
+      res.json(err);
+    });
     // console.log(postData);
 
-    const post = postData[0].get({ plain: true });
-    console.log(post);
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
 
 
-    res.render('post', post);
+    res.render('post', {posts: posts});
   } catch (err) {
     res.status(500).json(err);
   }
