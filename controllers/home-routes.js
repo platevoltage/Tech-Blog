@@ -13,10 +13,13 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    console.log(posts);
+    console.log(req.session);
 
 
-    res.render('post', {posts: posts});
+    res.render('post', {
+      posts: posts, 
+      loggedIn: req.session.loggedIn
+    });
   } catch (err) {
     res.status(500).json(err);
   }

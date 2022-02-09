@@ -186,7 +186,11 @@ ul li {
     display: inline;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
 
+}
 
 
 
