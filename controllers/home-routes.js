@@ -1,11 +1,23 @@
 const router = require('express').Router();
-const path = require('path');
+// const path = require('path');
+const Post = require('../models/Post');
 
 // This is the 'get' route 
 router.get('/', async (req, res) => {
-  // Here, index.html is rendered
-  // res.sendFile(path.join(__dirname, '../views/index.html'));
-  res.render('post');
+  try {
+
+    const postData = await Post.findAll();
+    // console.log(postData);
+
+    const post = postData[0].get({ plain: true });
+    console.log(post);
+
+
+    res.render('post', post);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  
 
 });
 
