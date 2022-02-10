@@ -1,19 +1,27 @@
 const router = require('express').Router();
 // const path = require('path');
-const Post = require('../models/Post');
+const { Post, User } = require('../models/');
 
 // This is the 'get' route 
 router.get('/', async (req, res) => {
   try {
 
-    const postData = await Post.findAll().catch((err) => { 
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+
+        }
+      ]
+    }).catch((err) => { 
       res.json(err);
     });
     // console.log(postData);
 
     const posts = postData.map((post) => post.get({ plain: true }));
     
-    // console.log(req.session);
+    console.log(posts);
     
 
 
