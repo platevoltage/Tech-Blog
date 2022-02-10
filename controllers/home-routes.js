@@ -48,7 +48,8 @@ router.get('/singlepost/:id', async (req, res) => {
     res.render('singlepost', {
       post: post, 
       loggedIn: req.session.loggedIn,
-      username: req.session.username
+      username: req.session.username,
+      userid: req.session.userid
     });
   } catch (err) {
     res.status(500).json(err);
