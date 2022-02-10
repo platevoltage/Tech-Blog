@@ -39,5 +39,16 @@ router.get('/login', async (req, res) => {
 
 });
 
+router.get('/new', async (req, res) => {
+  try {
+    res.render('new');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  
+
+});
+
+
 
 module.exports = router;
