@@ -5,10 +5,10 @@
                     New Post. {{userid}}
                 </div>
 
-                <form action="/api/post/" method="post">
-                    <input type="hidden" name="user_id" value={{userid}}>
-                    <input name="title" class="form-input" type="text" id="title" />
-                    <textarea name="body"></textarea>
+                <form class="form post-form">
+                    <input type="hidden" id="user_id" value={{userid}}>
+                    <input id="title" class="form-input" type="text" id="title" />
+                    <textarea id="body"></textarea>
                     <button class="btn btn-primary" type="submit">submit</button>
                 </form>
 
@@ -21,6 +21,6 @@
           
         </div>
 
-
+<script src="./js/newpost.js"></script>
 
 

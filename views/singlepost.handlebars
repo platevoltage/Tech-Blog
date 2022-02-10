@@ -23,10 +23,10 @@
             {{/each}}
             <div class="blog">
                 <p>Comment Below:</p>
-                <form action="/api/post/comment/" method="post">
-                    <input type="hidden" name="user_id" value={{userid}}>
-                    <input type="hidden" name="post_id" value={{post.id}}>
-                    <textarea name="body"></textarea>
+                <form class="form comment-form">
+                    <input type="hidden" id="user_id" value={{userid}}>
+                    <input type="hidden" id="post_id" value={{post.id}}>
+                    <textarea id="comment"></textarea>
                     <button class="btn btn-primary" type="submit">submit</button>
                 </form>
 
@@ -35,3 +35,8 @@
             <div class="stripe"></div>
           
         </div>
+
+
+    
+    <script src="/js/comment.js"></script>
+
