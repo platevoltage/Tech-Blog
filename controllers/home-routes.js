@@ -12,6 +12,9 @@ router.get('/', async (req, res) => {
           attributes: ['username'],
 
         }
+      ],
+      order: [
+        ["id", "DESC"]
       ]
     }).catch((err) => { 
       res.json(err);
