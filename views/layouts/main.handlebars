@@ -10,7 +10,7 @@
     <div class="background bottom"></div>
     <header>
         <div id="nav">
-            <ul><li>{{ userid }}</li>
+            <ul>
                 <li>Home</li>
                 <li>Dashboard</li>
                 <li>
@@ -24,7 +24,14 @@
                 </li>
 
             </ul>
+            <div id="login-info">
+                {{#if loggedIn}}
+                    Logged in as: {{userid}}
+                {{/if}}
+            </div>
+        
         </div>
+        
         <div id="logo-container">
             <div id="logo">
             Tech Blog

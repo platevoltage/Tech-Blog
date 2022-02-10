@@ -1,9 +1,11 @@
 * {
     transition: transform 2s;
 }
-
-body {
+body, #login-info {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+body {
+    
     display: flex;
     /* background-image: linear-gradient(-155deg, #101010 0%, #1c1c1c 100%);
     background-size: fill;
@@ -127,6 +129,13 @@ body {
         perspective(0px) 
         rotateY(5deg) 
     ;
+}
+#login-info {
+    position: absolute;
+    margin-top: 10px;
+    right: 0;
+    text-shadow: none;
+    /* background-color: #ffffff; */
 }
 main {
     position: relative;
