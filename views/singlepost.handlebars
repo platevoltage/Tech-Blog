@@ -14,6 +14,13 @@
                 </p>
               
             </div>
+            
+            {{#each post.comments as |comment|}}
+            <div class="blog">
+                <p>{{comment.body}}</p>
+                <span class="comment">Posted by: {{comment.user.username}} on {{format_date comment.createdAt}}</span>
+            </div>
+            {{/each}}
             <div class="blog">
                 <p>Comment Below:</p>
                 <form action="/api/post/comment/" method="post">

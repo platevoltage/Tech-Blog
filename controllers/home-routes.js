@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // const path = require('path');
-const { Post, User } = require('../models/');
+const { Post, User, Comment } = require('../models/');
 
 // This is the 'get' route 
 router.get('/', async (req, res) => {
@@ -37,6 +37,16 @@ router.get('/singlepost/:id', async (req, res) => {
           model: User,
           attributes: ['username'],
 
+        },{ 
+          model: Comment,
+          include: [
+            {
+              model: User,
+              
+              
+            }]
+          // attributes: ['body', 'user_id'],
+
         }
       ]
     }).catch((err) => { 
@@ -44,6 +54,7 @@ router.get('/singlepost/:id', async (req, res) => {
     });
     // console.log(postData);
     const post = postData.get({ plain: true });
+  
     console.log(post);
     res.render('singlepost', {
       post: post, 

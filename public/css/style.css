@@ -88,6 +88,7 @@ body {
     
 }
 #logo, .blog{
+    position: relative;
     background-color: #007fb1;
     padding: 10px;
     box-shadow: 1px 1px 3px #ffffff,  10px 10px 1px #c800ff;
@@ -198,7 +199,7 @@ main {
 .comment {
     position: absolute;
     right: 10px;
-    bottom: 20px;
+    bottom: 4px;
 
 }
 ul li {
