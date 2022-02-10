@@ -5,7 +5,6 @@ const { Post, User } = require('../models/');
 // This is the 'get' route 
 router.get('/', async (req, res) => {
   try {
-
     const postData = await Post.findAll({
       include: [
         {
@@ -18,13 +17,8 @@ router.get('/', async (req, res) => {
       res.json(err);
     });
     // console.log(postData);
-
     const posts = postData.map((post) => post.get({ plain: true }));
-    
     console.log(posts);
-    
-
-
     res.render('post', {
       posts: posts, 
       loggedIn: req.session.loggedIn,
@@ -33,7 +27,32 @@ router.get('/', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  
+});
+
+router.get('/singlepost/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+
+        }
+      ]
+    }).catch((err) => { 
+      res.json(err);
+    });
+    // console.log(postData);
+    const post = postData.get({ plain: true });
+    console.log(post);
+    res.render('singlepost', {
+      post: post, 
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 
 });
 

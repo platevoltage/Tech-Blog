@@ -194,7 +194,12 @@ main {
     padding: 4px 20px 4px 20px;
     box-shadow: 2px 2px 1px #007fb1;
 }
+.comment {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
 
+}
 ul li {
     display: inline;
 }
