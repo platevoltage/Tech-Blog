@@ -6,12 +6,13 @@
                 <div class="title">
                     {{ post.title }}
                     <div class="post-info">
-                        posted by {{ post.user.username }}
+                        Posted by {{ post.user.username }} on {{format_date post.createdAt}}
                     </div>
                 </div>
                 <p>
                     {{ post.body }}
                 </p>
+              
             </div>
             <div class="stripe"></div>
             <div class="stripe"></div>

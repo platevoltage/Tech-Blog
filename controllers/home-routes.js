@@ -39,7 +39,10 @@ router.get('/', async (req, res) => {
 
 router.get('/login', async (req, res) => {
   try {
-    res.render('login');
+    res.render('login', {
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -51,6 +54,7 @@ router.get('/new', async (req, res) => {
   try {
     res.render('new', {
       loggedIn: req.session.loggedIn,
+      username: req.session.username,
       userid: req.session.userid
     });
   } catch (err) {
@@ -62,7 +66,10 @@ router.get('/new', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
-    res.render('dashboard');
+    res.render('dashboard', {
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
+    });
   } catch (err) {
     res.status(500).json(err);
   }
