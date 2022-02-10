@@ -2,10 +2,11 @@
             
             <div class="blog">
                 <div class="title">
-                    New Post.
+                    New Post. {{userid}}
                 </div>
 
-                <form action="/api/post/">
+                <form action="/api/post/" method="post">
+                    <input type="hidden" name="user_id" value={{userid}}>
                     <input name="title" class="form-input" type="text" id="title" />
                     <textarea name="body"></textarea>
                     <button class="btn btn-primary" type="submit">submit</button>

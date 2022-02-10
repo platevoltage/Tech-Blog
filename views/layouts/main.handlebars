@@ -12,7 +12,13 @@
         <div id="nav">
             <ul>
                 <li>Home</li>
-                <li>Dashboard</li>
+                <li>
+                    {{#if loggedIn}}
+                    <a href="/dashboard">Dashboard</a>
+                    {{else}}
+                    <a href="/login">Dashboard</a>
+                    {{/if}}
+                </li>
                 <li>
                     {{#if loggedIn}}
                     <a id="logout" href="/">Logout</a>
@@ -26,7 +32,7 @@
             </ul>
             <div id="login-info">
                 {{#if loggedIn}}
-                    Logged in as: {{userid}}
+                    Logged in as: {{username}}
                 {{/if}}
             </div>
         
