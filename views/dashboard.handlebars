@@ -39,20 +39,25 @@
           
         </div>
 
-<script src="./js/newpost.js"></script>
+
 
 
 
      {{#each posts as |post|}}
         <div class="container">
-            
+          
+            <button class="delete" data-id={{post.id}}>X</button>
+          
             <div class="blog">
                 <div class="title">
                     {{ post.title }}
+
+                    
                     <div class="post-info">
                         Posted on {{format_date post.createdAt}}
                     </div>
                 </div>
+                
                 <p>
                     {{ post.body }}
                 </p>
@@ -88,3 +93,4 @@
 
 
 
+<script src="./js/newpost.js"></script>

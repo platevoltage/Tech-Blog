@@ -4,6 +4,7 @@ const postHandler = async (event) => {
     const body = document.querySelector('#body').value.trim();
     const title = document.querySelector('#title').value.trim();
     const user_id = document.querySelector('#user_id').value;
+    
 
   
     if (body && title && user_id) {
@@ -14,14 +15,37 @@ const postHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        // document.location.replace('/dashboard');
+        document.location.reload();
       } else {
         alert('Failed to post comment.');
       }
     }
   };
 
-  document
-    .querySelector('.post-form')
-    .addEventListener('submit', postHandler);
+
+const deleteButtons = document.getElementsByClassName('delete');
+const deleteHandler = async (event) => {
+
+  console.log(event.target.dataset.id);
+  const response = await fetch(`/api/post/${event.target.dataset.id}`, {
+    method: 'DELETE'
+  });
+  if (response.ok) {
+    // document.location.replace('/dashboard');
+    document.location.reload();
+  } else {
+    alert('Failed to post comment.');
+  }
+
+}
+
+document
+  .querySelector('.post-form')
+  .addEventListener('submit', postHandler);
+  
+
+for (let i of deleteButtons) {
+  i.addEventListener('click', deleteHandler);
+}
   

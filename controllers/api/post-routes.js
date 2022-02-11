@@ -39,5 +39,22 @@ router.post('/comment', async (req, res) => {
   });
   
 
+  router.delete('/:id', function (req, res) {
+    try {
+      const deleted = Post.destroy({
+        where: {id: req.params.id}
+        // title: req.body.title,
+        // body: req.body.body,
+        // user_id: req.body.user_id
+       
+      });
 
+      
+        res.status(200).json(deleted);
+
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 module.exports = router;
