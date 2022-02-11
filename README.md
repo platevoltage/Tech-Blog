@@ -1,24 +1,30 @@
 # Tech-Blog
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## https://quiet-coast-84913.herokuapp.com
 
 
 
-This is a full stack note taking app that uses express.js running on Node to store notes on the backend server using POST and GET. The front end uses Bootstrap CSS framework utilizing Bootswatch for theming.
+This is a full stack blog website that supports multiple users. Users can view comment on other user's posts. The dashboard allows for content creation and deletion.
 
 ##
 
-- Math.random() is used to generate a 4 digit base16 ID for each note.
+- Model View Controller (MVC) structure is used with Handlebars.
 
-`Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);`
-- All of the routing is handled by the backend server
+`const exphbs = require('express-handlebars');`
+- Express Router is used for all API routes
+```
+const router = require('express').Router();
 
-`app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/index.html'));
-});`
-- Persistant data is stored in JSON format.
+const userRoutes = require('./user-routes');
+const postRoutes = require('./post-routes');
+```
 
-`  fs.writeFile("./db/db.json", JSON.stringify(db, null, 2), (err) => err ? console.error(err) : console.log("success"));`
+- App is deployed on Heroku using JawsDB for the database.
+
+`if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+}`
 
 
 <img width="1325" alt="Screen Shot 2022-02-10 at 10 00 40 PM" src="https://user-images.githubusercontent.com/1414728/153544377-9d5ae8af-0c80-48fc-9764-f19aad4e5c2a.png">
@@ -35,7 +41,8 @@ https://quiet-coast-84913.herokuapp.com
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [node.js](https://nodejs.dev) 
 * [express.js](http://expressjs.com)
-
+* [sequelize](https://sequelize.org)
+* [mySQL](https://www.mysql.com)
 
 ## Authors
 
