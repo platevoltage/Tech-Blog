@@ -18,9 +18,9 @@ const sess = {
   secret: 'bender is great',
   resave: false,
   saveUninitialized: true,
-  cookie: {
-    maxAge: 86400,
-  },
+  // cookie: {
+  //   maxAge: 86400,
+  // },
   store: new SequelizeStore({
     db: sequelize
   })

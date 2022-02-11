@@ -197,6 +197,7 @@ main {
 
 }
 .delete {
+    display: block;
     text-align: center;
     font-size: 14px;
     font-family: ocr-a;
@@ -204,11 +205,12 @@ main {
     top: 33px;
     left: -20px;
     background-color: #dd0000;
-    color: inherit;
+    color: #ffffff;
     box-shadow:  1px 1px 2px #ffffff;
     width: 20px;
     height: 20px;
     border: none;
+    padding: 0;
 }
 
 .post-info, button {

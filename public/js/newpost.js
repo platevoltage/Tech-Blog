@@ -16,7 +16,7 @@ const postHandler = async (event) => {
   
       if (response.ok) {
         // document.location.replace('/dashboard');
-        document.location.reload();
+        document.location.reload(true);
       } else {
         alert('Failed to post comment.');
       }
@@ -33,9 +33,9 @@ const deleteHandler = async (event) => {
   });
   if (response.ok) {
     // document.location.replace('/dashboard');
-    document.location.reload();
+    document.location.reload(true);
   } else {
-    alert('Failed to post comment.');
+    alert('Failed to delete comment.');
   }
 
 }
