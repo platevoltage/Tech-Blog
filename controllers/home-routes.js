@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
         i.overflow = true;
       }
     }
-    console.log(posts);
+    // console.log(posts);
    
 
 
