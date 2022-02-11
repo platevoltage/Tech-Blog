@@ -16,12 +16,12 @@
             </div>
             
             {{#each post.comments as |comment|}}
-            <div class="blog">
-                <p>{{comment.body}}</p>
-                <span class="comment">Posted by: {{comment.user.username}} on {{format_date comment.createdAt}}</span>
+            <div class="blog comment">
+                <p>{{comment.user.username}}: {{comment.body}}</p>
+                <span class="posted-by">{{format_date comment.createdAt}}</span>
             </div>
             {{/each}}
-            <div class="blog">
+            <div class="blog comment">
                 <p>Comment Below:</p>
                 <form class="form comment-form">
                     <input type="hidden" id="user_id" value={{userid}}>
@@ -31,8 +31,8 @@
                 </form>
 
             </div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
+            <div class="stripe comment"></div>
+            <div class="stripe comment"></div>
           
         </div>
 

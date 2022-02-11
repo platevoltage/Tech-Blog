@@ -11,6 +11,16 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['username'],
 
+        },{ 
+          model: Comment,
+          // where: {id: 1} ,
+          include: [
+            {
+              model: User,
+              
+              
+            }]
+
         }
       ],
       order: [
@@ -20,12 +30,22 @@ router.get('/', async (req, res) => {
       res.json(err);
     });
     // console.log(postData);
-    const posts = postData.map((post) => post.get({ plain: true }));
+    let posts = postData.map((post) => post.get({ plain: true }));
+    for (let i of posts) {
+      
+      if (i.comments.length > 2) {
+        i.comments.length = 2;
+        i.overflow = true;
+      }
+    }
     console.log(posts);
+   
+
+
     res.render('post', {
       posts: posts, 
       loggedIn: req.session.loggedIn,
-      username: req.session.username
+      username: req.session.username,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -56,7 +76,8 @@ router.get('/singlepost/:id', async (req, res) => {
       res.json(err);
     });
     // console.log(postData);
-    const post = postData.get({ plain: true });
+    let post = postData.get({ plain: true });
+    
   
     console.log(post);
     res.render('singlepost', {

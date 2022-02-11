@@ -98,15 +98,23 @@ body {
 
 }
 .blog p {
-    margin: 20px;
+    margin: 10px 10px 20px 20px  ;
 
   
+}
+.comment {
+    /* width: 90%; */
+    margin-left: 50px;
+}
+.comment p {
+    font-size: 70%;
+    margin: 0 0 20px 10px  ;
 }
 .stripe {
     position: relative;
     background-color: #007fb1;
     margin-top: 4px;
-    margin-left: 0;
+    /* margin-left: 0; */
     height: 4px;
     box-shadow: 1px 1px 2px #ffffff ,10px 4px 1px #c800ff;
     /* border-bottom: 1px solid #ffffff; */
@@ -149,9 +157,12 @@ main {
 }
 .container {
     position: relative;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end; */
     /* background-color: #007fb1; */
     margin: 0px 100px 80px 50px;
-    box-shadow: 10px 10px 1px #c800ff;
+    /* box-shadow: 10px 10px 1px #c800ff; */
     /* height: 200px; */
     /* width: 90%; */
     /* transform-origin: 50% 10%; */
@@ -196,12 +207,20 @@ main {
     padding: 4px 20px 4px 20px;
     box-shadow: 2px 2px 1px #007fb1;
 }
-.comment {
+.posted-by {
     position: absolute;
     right: 10px;
     bottom: 4px;
 
 }
+
+.show-comments {
+    margin-left: 35%;
+    position: relative;
+
+    
+}
+
 ul li {
     display: inline;
 }
