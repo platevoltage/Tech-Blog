@@ -52,6 +52,57 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/dashboard', async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      
+      include: [
+        {
+          model: User,
+          where: {id: req.session.userid},
+          attributes: ['username'],
+
+        },{ 
+          model: Comment,
+          // where: {id: 1} ,
+          include: [
+            {
+              model: User,
+              
+              
+            }]
+
+        }
+      ],
+      order: [
+        ["id", "DESC"]
+      ]
+    }).catch((err) => { 
+      res.json(err);
+    });
+    // console.log(postData);
+    let posts = postData.map((post) => post.get({ plain: true }));
+    for (let i of posts) {
+      
+      if (i.comments.length > 0) {
+        // i.comments.length = 0;
+        i.overflow = true;
+      }
+    }
+    res.render('dashboard', {
+      posts: posts, 
+      loggedIn: req.session.loggedIn,
+      username: req.session.username,
+      userid: req.session.userid
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  
+
+});
+
+
 router.get('/singlepost/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -119,18 +170,6 @@ router.get('/new', async (req, res) => {
 
 });
 
-router.get('/dashboard', async (req, res) => {
-  try {
-    res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
-      username: req.session.username
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  
-
-});
 
 
 module.exports = router;

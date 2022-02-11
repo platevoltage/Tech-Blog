@@ -1,12 +1,10 @@
         <div class="container">
             
             <div class="blog">
-                <div class="title">
-                    Dashboard.
-                </div>
+               <p>Welcome {{username}} </p> 
 
              
-                    <a href="/new">New Post</a>
+              
          
 
 
@@ -17,6 +15,75 @@
             <div class="stripe"></div>
           
         </div>
+
+        <div class="container">
+            
+            <div class="blog">
+                <div class="title">
+                    New Post
+                </div>
+
+                <form class="form post-form">
+                    <input type="hidden" id="user_id" value={{userid}}>
+                    <input id="title" class="form-input" type="text" id="title" />
+                    <textarea id="body"></textarea>
+                    <button class="btn btn-primary" type="submit">submit</button>
+                </form>
+
+
+
+
+            </div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+          
+        </div>
+
+<script src="./js/newpost.js"></script>
+
+
+
+     {{#each posts as |post|}}
+        <div class="container">
+            
+            <div class="blog">
+                <div class="title">
+                    {{ post.title }}
+                    <div class="post-info">
+                        Posted on {{format_date post.createdAt}}
+                    </div>
+                </div>
+                <p>
+                    {{ post.body }}
+                </p>
+                
+                
+                {{!-- <a class="posted-by" href=/singlepost/{{post.id}}>Leave a Comment</a> --}}
+            </div>
+            {{!-- {{#each comments as |comment|}}
+            <div class="blog comment">
+                <p>{{comment.user.username}}: {{comment.body}}</p>
+                <span class="posted-by">{{format_date comment.createdAt}}</span>
+            </div>
+            {{/each}} --}}
+            {{#if comments}}
+            <div class="blog comment">
+                <a class="show-comments" href=/singlepost/{{post.id}}>Show comments</a>
+            </div>
+            {{/if}}
+
+            {{#if comments}}
+            
+            
+            <div class="stripe comment"></div>
+            <div class="stripe comment"></div>
+            {{else}}
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            {{/if}}
+          
+        </div>
+        {{/each}}
 
 
 
