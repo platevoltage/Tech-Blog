@@ -83,7 +83,7 @@ body {
     transform: 
         translate(5%, 0) 
         perspective(300px) 
-        rotateY(5deg) 
+        rotateY(1deg) 
     ;
     
 }
@@ -135,11 +135,11 @@ body {
     box-shadow: 1px 1px 3px #ffffff, 7px 7px 1px #007fb1;
 
     transform-origin: 10%;
-    /* transform: 
-        translate(0, 0) 
-        perspective(0px) 
-        rotateY(5deg) 
-    ; */
+    transform: 
+    translate(0, 0) 
+    perspective(1000px) 
+    rotateY(1deg) 
+    ;
 }
 #login-info {
     position: absolute;
@@ -189,7 +189,7 @@ main {
     /* border: 1px solid #ffffff */
     box-shadow:  1px 1px 2px #ffffff;
     transform: 
-        translate(4%, 0) 
+        translate(4%, 0)
         perspective(300px) 
         rotateY(3deg) 
 ;
@@ -283,17 +283,3 @@ button {
 }
 
 
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) {
-    /*
-      Define here the CSS styles applied only to Safari browsers
-      (any version and any device)
-     */
-     #nav {
-        transform: 
-        translate(0, 0) 
-        perspective(0px) 
-        rotateY(5deg) 
-     }
- ;
-}}
