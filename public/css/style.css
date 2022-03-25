@@ -83,7 +83,7 @@ body {
     transform: 
         translate(5%, 0) 
         perspective(300px) 
-        rotateY(1deg) 
+        rotateY(5deg) 
     ;
     
 }
@@ -137,8 +137,8 @@ body {
     transform-origin: 10%;
     transform: 
     translate(0, 0) 
-    perspective(1000px) 
-    rotateY(1deg) 
+    perspective(10000px) 
+    rotateY(4deg) 
     ;
 }
 #login-info {
