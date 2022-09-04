@@ -3,10 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const helpers = require('./utils/helpers');
-const https = require('https');
-const fs = require('fs');
 require('dotenv').config();
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -37,15 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers'));
 
 sequelize.sync({ force: false }).then(() => {
-  // app.listen(PORT, () => console.log('Now listening'));
-  https.createServer({
-    key: fs.readFileSync(process.env.KEY_PEM),
-    cert: fs.readFileSync(process.env.CERT_PEM),
-  },app)
-    .listen(PORT, ()=>{
-      console.log(`App listening on PORT ${PORT}`);
-      console.log(process.env);
-    });
+  app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
 });
 
 
